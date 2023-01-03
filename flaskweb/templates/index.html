@@ -1,0 +1,60 @@
+{% extends 'basepage.html' %}
+
+{% block title %}
+首頁
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/index.css">
+{% endblock %}
+
+{% block menu %}
+<a href="/" class="nav-item nav-link active">首頁</a>
+<a href="/about" class="nav-item nav-link">關於我們</a>
+<a href="/product" class="nav-item nav-link">商品服務</a>
+<a href="/news" class="nav-item nav-link">最新消息</a>
+<a href="/contact" class="nav-item nav-link">聯絡我們</a>
+{% endblock %}
+
+{% block mainpage %}
+<div id="banner_index">
+	<div class="banner1 ba1">
+		<span id="text1">
+			許下每一口香甜耶誕心願<br />BRIGHTEN YOUR HOLIDAYS<br />
+		</span>
+		<span class="text2 t2-1">
+		太妃核果風味冷萃咖啡</span><br />
+		<span class="text2 t2-2">
+		太妃核果風味那堤</span><br />
+		<span class="text2 t2-3">
+		薄荷風味摩卡</span><br />
+	</div>
+	<div class="banner1 ba3">
+		<span id="b3p1">
+			<span class="b3t1">OPEN 你的星禮程！</span><br />
+			<span class="b3t2">
+				即日起至2022/12/31止<br />
+				於門市消費主動出示OPEN POINT APP會員條碼<br />即可累積或折抵使用OPEN POINT
+			</span>
+			<br />
+			<span class="b3t3">1點OPENPOINT折抵1元<br/></span>
+		</span>
+		<span class="b3p2">
+			<span class="b3t1">新朋友 星享受</span>
+			<br />
+			<span class="b3t2">
+				OPEN POINT會員首次加入星禮程<br />
+				加入會員當月以星禮程支付單筆滿120元<br/>
+			</span>
+			<span class="b3t3">加贈OPENPOINT30點</span>
+		</span>
+	</div>
+
+	<div class="banner1 ba4">
+		<span class="b4t1">
+			2022 最佳星服務票選活動
+		</span>
+	</div>
+
+</div>
+{% endblock %}

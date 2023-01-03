@@ -1,0 +1,48 @@
+form{
+	width: 90%;
+	height: 50px;
+	margin: 0px;
+}
+
+.btn{
+	width:10%;
+	height: 40px;
+	margin: 10px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+	border-radius: 15;
+	border: 2px solid #23995a;
+	color: black;
+}
+
+.btn:hover{
+	background-color: #23995a;
+	color: white;
+}
+
+.drpic{
+	width: 18%;
+	height: 400px;
+	margin: 10px;
+	float: left;
+}
+.drpic a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.drimg{
+	width: 100%;
+	height: 250px;
+}
+
+#drtype{
+	color: black;
+	width: 95%;
+	margin: 15px;
+	font-size: 26px;
+	font-weight: bold;
+}

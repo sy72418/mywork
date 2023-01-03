@@ -1,0 +1,48 @@
+{% extends 'basepage.html' %}
+
+{% block title %}
+商品服務
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="../static/css/product.css">
+{% endblock %}
+
+{% block menu %}
+<a href="/" class="nav-item nav-link">首頁</a>
+<a href="/about" class="nav-item nav-link">關於我們</a>
+<a href="/product" class="nav-item nav-link active">商品服務</a>
+<a href="/news" class="nav-item nav-link">最新消息</a>
+<a href="/contact" class="nav-item nav-link">聯絡我們</a>
+{% endblock %}
+
+
+{% block mainpage %}
+	<form action="/product" method="get">
+		<button class="btn" type="submit" name="click" value="1">咖啡飲品</button>
+		<button class="btn" type="submit" name="click" value="2">茶瓦納</button>
+		<button class="btn" type="submit" name="click" value="3">星冰樂</button>
+		<button class="btn" type="submit" name="click" value="4">冷萃咖啡</button>
+		<button class="btn" type="submit" name="click" value="6">其他飲料</button>
+		<button class="btn" type="submit" name="click" value="5">罐裝飲品</button>
+	</form>
+	
+	<p id='drtype'>{{tname[0]}}</p>
+	
+
+	{% for row in result %}
+		<div class="drpic">
+			<a href="{{row[1]}}" target="_blank">
+				<img class="drimg" src="{{row[0]}}">
+				<span>{{row[2]}}<br />{{row[3]}}</span>
+			</a>
+		</div>
+	{% endfor %}
+
+	<div style='clear: both;'></div>
+
+	{{pagination.links}}
+
+
+
+{% endblock %}

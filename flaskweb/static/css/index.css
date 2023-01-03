@@ -1,0 +1,89 @@
+#banner_index{
+	text-align: center;
+	width: 95%;
+	min-height: 1500px;
+	padding: 0;
+	margin: 25px;
+}
+.banner1{
+	width: 100%;
+	padding: 0;
+	margin: 15px 0;
+}
+.ba1{
+	background-image: url("../img/banner1.jpg");
+	background-size: 100%;
+	height: 580px;
+}
+
+#text1{
+	color: white;
+	font-size: 28px;
+	font-weight: bold;
+	position: relative;
+	top: 30px;
+}
+
+.text2{
+	font-size: 18px;
+	color: white;
+	font-weight: bold;
+	width: auto;
+}
+.t2-1{
+	position: relative;
+	bottom: -420px;
+	left: -310px;
+}
+.t2-2{
+	position: relative;
+	bottom: -395px;
+}
+.t2-3{
+	position: relative;
+	bottom: -365px;
+	left: 305px;
+}
+
+.ba3{
+	height: 450px;
+	background-size: 100%;
+	background-image: url("../img/banner3.jpg");
+}
+#b3p1{
+	position: relative;
+	top:170px;
+	right:305px;
+	color: white;
+}
+.b3t1{
+	font-size: 28px;
+	font-weight: bold;
+}
+.b3t2{
+	font-size: 17px;
+}
+.b3t3{
+	font-size: 27px;
+	font-weight: bold;
+}
+.b3p2{
+	position: relative;
+	top: 30px;
+	left: 290px;
+	color: white;
+}
+
+.ba4{
+	height: 280px;
+	background-image: url("../img/banner06.jpg");
+	background-size: 100%;
+}
+.b4t1{
+	color: black;
+	font-size: 32px;
+	font-weight: bold;
+	position: relative;
+	top: 100px;
+	right: 180px;
+}
