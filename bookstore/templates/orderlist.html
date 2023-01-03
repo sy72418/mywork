@@ -1,0 +1,100 @@
+{% extends "base1.html" %}
+
+{% block title %}
+訂單管理
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="/static/css/cart.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/cartok.css">
+{% endblock %}
+
+{% block js %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div style="margin-top: 50px;"></div>
+
+<div id="cart">
+	<span class="carttitle">訂單列表</span><br>
+	<div style="margin-top: 20px;"></div>
+
+	{% for orders in order %}
+
+	<table width="70%" border="1" align="center" cellpadding="6" cellspacing="0">
+		
+		<tr>
+			<th width="60" align="center"><strong>訂單編號</strong></th>
+			<th width="60" align="center"><strong>訂購日期</strong></th>
+			<th width="60" align="center"><strong>總額</strong></th>
+			<th width="60" align="center"><strong>付款方式</strong></th>
+			<th width="40" align="center"><strong>訂單資訊</strong></th>
+		</tr>
+
+		<tr>
+			<td align="center">{{orders.id}}</td>
+			<td align="center">{{orders.create_date}}</td>
+			<td align="center">$ {{orders.grandtotal}}</td>
+			<td align="center">{{orders.paytype}}</td>
+			<td align="center"><button class="show_btn">訂單明細</button></td>
+		</tr>
+
+	</table>
+
+	<div id="detail" class="detail">
+		<div style="margin-top: 30px;"></div>
+
+		<table id="infotable" width="70%" border="0" align="center" cellpadding="6" cellspacing="0">
+			<tr>
+				<th align="left" width="150">商品名稱</th>
+				<th width="30" align="right">數量</th>
+				<th width="50" align="right">價錢</th>
+			</tr>
+
+			{% for unit in detail %}
+			<tr>
+				<td align="left">{{unit.pname}}</td>
+				<td align="right">{{unit.quantity}}</td>
+				<td align="right">$ {{unit.dtotal}}</td>
+			</tr>
+			{% endfor %}
+
+			<tr>
+				<td colspan="2" align="right">運費</td>
+				<td align="right">$ {{orders.shipping}}</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="right">總計</td>
+				<td align="right">$ {{orders.grandtotal}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="margin-top: 35px;"></div>
+
+	
+
+	{% endfor %}
+
+
+</div>
+
+
+<script>
+	$(document).ready(function(){
+
+		$(".detail").hide();
+		$(".show_btn").click(function(){
+			$(this).closest("table").next(".detail").slideToggle();
+		})
+	});
+	</script>
+
+
+{% endblock %}

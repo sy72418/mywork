@@ -1,0 +1,77 @@
+{% extends "base1.html" %}
+
+{% block title %}
+會員註冊
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/form.css">
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript">
+	function checkpwd(){
+		var p = document.getElementsByName("pwd")[0].value;
+		var p2 = document.getElementsByName("repwd")[0].value;
+		if(p == p2){
+			return true;
+		}else{
+			alert("密碼輸入有誤，請重新輸入");
+			return false;
+		}
+	}
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+	<div id="reform">
+		<p class="subject">會員註冊</p>
+		<form class="contact_form" action="" method="post" onsubmit="return checkpwd()">
+			
+			{% csrf_token %}
+			<span style="font-size: 20px;color: red;">{{msg}}</span>
+
+			<div class="form-group">
+				<label>姓名</label><br>
+				<input type="text" name="username" class="form-control" required />
+			</div>
+
+			<div class="form-group">
+				<label>性別</label><br>
+				<input type="radio" name="sex" value="M" checked />男
+				<input type="radio" name="sex" value="F" />女
+			</div>
+
+			<div class="form-group">
+				<label>生日</label><br>
+				<input type="text" name="birthday" class="form-control" placeholder="西元年月日，例：1995-02-15" required />
+			</div>
+
+			<div class="form-group">
+				<label>Email</label><br>
+				<input type="email" name="email" class="form-control"  required />
+			</div>
+
+			<div class="form-group">
+				<label>密碼</label><br>
+				<input type="password" name="pwd" class="form-control" required />
+			</div>
+
+			<div class="form-group">
+				<label>確認密碼</label><br>
+				<input type="password" name="repwd" class="form-control" required />
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn_submit">註冊</button><span style="font-size: 18px;color: black;margin-left: 15px;">已有帳號，從此處<a href="/login">登入</a></span>
+			</div>
+
+		</form>
+	</div>
+
+
+
+{% endblock %}

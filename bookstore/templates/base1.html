@@ -1,0 +1,67 @@
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		{% block title %}
+		{% endblock %}
+	</title>
+
+	<link rel="stylesheet" href="/static/css/base.css">
+
+	{% block css %}
+	{% endblock %}
+
+	{% block js %}
+	{% endblock %}
+
+</head>
+<body>
+
+	<div style="float: left;padding: 0;margin: 0;width: 15%;height: 15%;">
+		<img src="/static/images/logo.png" style="height: 100%;width: 100%;">
+	</div>
+
+	<div style="width: 8%;height: 55px;
+			margin-top: 20px;margin-right: 20px; text-align: center;float: right;font-size: 20px;padding-top: 22px;"><a href="/cart" style="text-decoration: none;color: black;">購物車</a>
+	</div>
+
+	<div style="width: 12%;height: 55px;margin-top: 20px;margin-right: 10px; text-align: center;float: right;font-size: 20px;padding-top: 22px;">
+		{% if request.session.isalive %}
+			<a href="/logout" style="text-decoration: none;color: black;">登出</a>
+			|
+			<a href="/myorder" style="text-decoration: none;color: black;">訂單管理</a>
+		{% else %}
+			<a href="/login" style="text-decoration: none;color: black;">登入</a>
+				|
+			<a href="/register" style="text-decoration: none;color: black;">註冊</a>
+		{% endif %}
+	</div>
+
+			
+
+
+
+	<div class="menu" style="clear: both;">
+		<ul class="menulist">
+			<a href="/home"><li class="menutxt">首頁</li></a>
+			<a href="/product"><li class="menutxt">商品</li></a>
+			<a href="#"><li class="menutxt">活動公告</li></a>
+			<a href="#"><li class="menutxt">關於我們</li></a>
+			<a href="#"><li class="menutxt">常見問題</li></a>
+		</ul>		
+	</div>
+
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+			
+	</div>
+
+	<div id="footer">
+		<span>誠品線上eslite.com - powered by 誠品生活 / 誠品書店 / 誠品物流 | 誠品生活股份有限公司 (eslite Spectrum Corporation) | 台灣台北市信義區松德路204號B1 服務電話：0800-666-798／+886-2-8789-8921<br>
+		本網站已依台灣網站內容分級規定處理｜建議使用瀏覽器版本：Google Chrome版本60以上 / Firefox版本48以上 / Safari 版本11以上</span>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+{% extends "base1.html" %}
+
+{% block title %}
+購物車
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/cart.css">
+{% endblock %}
+
+{% block content %}
+
+<div style="margin-top: 50px;"></div>
+
+<div id="cart">
+	<span class="carttitle">訂單確認</span>
+	<div style="margin-top: 25px;"></div>
+	
+	<form action="/cartok/" method="post" name="cartform" id="form1">
+		{% csrf_token %}
+
+		<span class="ftitle">購物清單</span><br>
+
+		<table width="70%" border="1" align="center" cellpadding="6" cellspacing="0">
+			<tr>
+				<th width="200" align="left"><strong>商品名稱</strong></th>
+				<th width="50" align="center"><strong>單價</strong></th>
+				<th width="30" align="center"><strong>數量</strong></th>
+				<th width="50" align="center"><strong>金額</strong></th>
+			</tr>
+
+			{% for unit in allcart %}
+			<tr>
+				<td align="left">{{unit.0}}</td>
+				<td align="right">$ {{unit.1}}</td>
+				<td align="right">{{unit.2}}</td>
+				<td align="right"><strong>$ {{unit.3}}</strong></td>
+			</tr>
+			{% endfor %}
+
+			<tr>
+				<td colspan="3" align="right"><strong>小計</strong></td>
+				<td align="right"> $ {{total}}</td>
+			</tr>
+
+			<tr>
+				<td colspan="3" align="right"><strong>運費</strong></td>
+				<td align="right"> $ {{shipping}}</td>
+			</tr>
+
+			<tr>
+				<td colspan="3" align="right"><strong>總計</strong></td>
+				<td align="right"><font color="red"> $ {{grandtotal}}</font></td>
+			</tr>
+		</table>
+		<div style="margin-top: 30px;"></div>
+
+		<span class="ftitle">訂購者資訊</span><br>
+
+		<table width="70%" border="1" align="center" cellpadding="6" cellspacing="0" id="infotable">
+			<tr>
+				<th width="120" align="center">資訊</th>
+				<th align="center">內容</th>
+			</tr>
+
+			<tr>
+				<td align="center">
+					<strong>姓名</strong>
+				</td>
+				<td><input type="text" name="cuname" value="{{name}}" size="50" required /></td>
+			</tr>
+
+			<tr>
+				<td align="center"><strong>Email</strong></td>
+				<td><input type="email" name="cuemail" value="{{email}}" size="50" required /></td>
+			</tr>
+
+			<tr>
+				<td align="center"><strong>連絡電話</strong></td>
+				<td><input type="text" name="cuphone" value="{{phone}}" size="50" required /></td>
+			</tr>
+
+			<tr>
+				<td align="center"><strong>寄送地址</strong></td>
+				<td><input type="text" name="cuaddr" value="{{address}}" size="50" required /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="left"><input type="checkbox" name="info" value="addinfo" checked>將聯絡電話與地址同步到會員資料中</td>
+			</tr>
+
+			<tr>
+				<td align="center"><strong>付款方式</strong></td>
+				<td>
+					<input type="radio" name="paytype" value="ATM轉帳" checked>ATM轉帳
+					<input type="radio" name="paytype" value="貨到付款">貨到付款
+					<input type="radio" name="paytype" value="信用卡">信用卡
+				</td>
+			</tr>
+
+		</table>
+
+		<div style="clear: both;margin-top: 50px;"></div>
+
+		<table border="0" align="center" cellpadding="10" cellspacing="0" id="btntable">
+			<tr>
+				<td><input type="button"  value="繼續購物" onClick="window.location='/product'" /></td>
+				
+				<td><input type="button"  value="修改購物車" onClick="window.location='/cart/'" /></td>
+				<td><input type="submit" value="確認購物"></td>
+			</tr>
+
+		</table>
+	</form>
+</div>
+
+{% endblock %}

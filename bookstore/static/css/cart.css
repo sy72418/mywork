@@ -1,0 +1,36 @@
+#cart{
+	min-height: 80%;
+}
+
+
+.ftitle{
+	margin-left: 15%;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#form1 tr{
+	font-size: 18px;
+}
+
+#btntable input{
+	font-size: 16px;
+	background-color: #e82a3f;
+	color: white;
+	border-radius: 5px;
+	border:0;
+	padding: 8px ;
+}
+
+#infotable input{
+	font-size: 18px;
+
+}
+
+.carttitle{
+	margin-left: 12%;
+	font-size: 26px;
+	font-weight: bold;
+	border-left: 6px solid #e82a3f;
+	padding-left: 5px;
+}

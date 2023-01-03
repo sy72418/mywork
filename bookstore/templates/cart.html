@@ -1,0 +1,82 @@
+{% extends "base1.html" %}
+
+{% block title %}
+購物車
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="/static/css/cart.css">
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+	function confirmlink(message){
+		document.returnValue = confirm(message);
+	}
+</script>
+{% endblock %}
+
+
+{% block content %}
+
+<div style="margin-top: 50px;"></div>
+
+<div id="cart">
+	<span class="carttitle">購物車</span>
+	<div style="margin-top: 25px;"></div>
+
+	<form action="/addtocart/update/" method="post" name="cartform" id="form1">
+		{% csrf_token %}
+
+		<span class="ftitle">購物清單</span>
+		<table width="70%" border="1" align="center" cellpadding="6" cellspacing="0">
+			
+			<tr>
+				<th width="180" align="left"><strong>商品名稱</strong></th>
+				<th width="50" align="center"><strong>單價</strong></th>
+				<th width="30" align="center"><strong>數量</strong></th>
+				<th width="50" align="center"><strong>金額</strong></th>
+				<th width="20" align="center"><strong>取消</strong></th>
+			</tr>
+
+			{% for unit in allcart %}
+			<tr>
+				<td align="left">{{unit.0}}</td>
+				<td align="right">$ {{unit.1}}</td>
+				<td align="right"><input type="text" name="qty{{forloop.counter0}}" id="qty{{forloop.counter0}}" value="{{unit.2}}" size="1"></td>
+				<td align="right"><strong>$ {{unit.3}}</strong></td>
+				<td align="center"><a href="/addtocart/remove/{{forloop.counter0}}" class="delbtn" onclick="confirmlink('確定刪除此商品嗎？');return document.returnValue">刪除</a></td>
+			</tr>
+			{% endfor %}
+
+			<tr>
+				<td colspan="3" align="right"><strong>小計</strong></td>
+				<td colspan="2" align="right"> $ {{total}}</td>
+			</tr>
+
+			<tr>
+				<td colspan="3" align="right"><strong>運費</strong></td>
+				<td colspan="2" align="right"> $ {{shipping}}</td>
+			</tr>
+
+			<tr>
+				<td colspan="3" align="right"><strong>總計</strong></td>
+				<td colspan="2" align="right"><font color="red"> $ {{grandtotal}}</font></td>
+			</tr>
+
+		</table>
+
+		<table border="0" align="center" cellpadding="10" cellspacing="0" id="btntable">
+			<tr>
+				<td><input type="button" name="continue" value="繼續購物" onClick="window.location='/product'" /></td>
+				<td><input type="submit" name="update" value="更新購物車" onClick="window.location='/addtocart/update/'"></td>
+				<td><input type="button" name="empty" value="清空購物車" onClick="window.location='/addtocart/empty/'" /></td>
+				<td><input type="button" name="order" onClick="window.location='/cartorder/'" value="結帳"></td>
+			</tr>
+
+		</table>
+	</form>
+</div>
+
+
+{% endblock %}
