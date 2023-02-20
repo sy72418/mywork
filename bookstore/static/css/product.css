@@ -49,3 +49,21 @@
 	color: #ff0000;
 	font-size: 16px;
 }
+
+.pagination{
+	float: left;
+	margin-top: 25px;
+	margin-bottom: 40px;
+	margin-left: 45%; 
+	text-align: center;
+}
+.step-links a{
+	text-decoration: none;
+	color:gray;
+	font-size: 10px; 
+}
+
+.current-page{
+	color: gray;
+	font-size: 10px;
+}

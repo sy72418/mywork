@@ -38,19 +38,24 @@
 		</div>
 	{% endif %}
 
-	{% if allgoods.has_previous %}
-	<div style="float: left; height: 23px;width: 60px;margin-top: 50px;margin-left:45%; border-radius: 15px;border:1px solid gray;text-align: center; margin-bottom: 50px;">
+	<div class="pagination">
+    	<span class="step-links">
+	        {% if allgoods.has_previous %}
+	            <a href="?page=1&p={{book}}">&laquo; </a>
+	            <a href="?page={{ allgoods.previous_page_number }}&p={{book}}">&lsaquo; 上一頁</a>
+	        {% endif %}
 
-		
-		<a href="?page={{allgoods.previous_page_number}}&p={{book}}" style="text-decoration: none;">上一頁</a>
-	</div>
-	{% endif %}
+	        <span class="current-page">
+	            第{{ allgoods.number }}頁/共{{ allgoods.paginator.num_pages }}頁
+	    	</span>
 
-	{% if allgoods.has_next %}
-	<div style="float: right; height: 23px;width: 60px;margin-top: 50px;margin-right:45%; border-radius: 15px;border:1px solid gray;text-align: center; margin-bottom: 50px;">
-		<a href="?page={{allgoods.next_page_number}}&p={{book}}" style="text-decoration: none;">下一頁</a>
+	        {% if allgoods.has_next %}
+	            <a href="?page={{ allgoods.next_page_number }}&p={{book}}">下一頁 &rsaquo;</a>
+	            <a href="?page={{ allgoods.paginator.num_pages }}&p={{book}}"> &raquo;</a>
+	        {% endif %}
+    	</span>
 	</div>
-	{% endif %}
+
 
 	<div style="clear: both;"></div>
 
